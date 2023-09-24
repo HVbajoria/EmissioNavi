@@ -28,7 +28,7 @@ text = "Trans Sustain"
 styled_text = gradient_text(text, color1, color2)
 st.write(f"<div>{styled_text}</div>", unsafe_allow_html=True)
 
-st.write("Calculate and Log your environmental impact while shipping and commuting using Machine learning algorithms: Logistic Regression and Decision Tree Classifier.")
+st.write("Calculate and Log your environmental impact while shipping and commuting using Machine learning algorithms: Logistic Regression")
 
 matplotlib.use('Agg')
 
@@ -99,17 +99,12 @@ pretty_result = {"age": ton, "sex": unit, "steroid": transportation_mode, "antiv
 
 single_sample = np.array(feature_list).reshape(1, -1)
 
-model_choice = st.selectbox("Select Model", ["LR", "DecisionTree"])
+model_choice = "LR"
 
 if st.button("Predict"):
-    if model_choice == "DecisionTree":
-        loaded_model = load_model("models/decision_tree.pkl")
-        prediction = loaded_model.predict(single_sample)
-        pred_prob = loaded_model.predict_proba(single_sample)
-    else:
-        loaded_model = load_model("models/logistic_regression.pkl")
-        prediction = loaded_model.predict(single_sample)
-        pred_prob = loaded_model.predict_proba(single_sample)
+	loaded_model = load_model("models/logistic_regression.pkl")
+	prediction = loaded_model.predict(single_sample)
+	pred_prob = loaded_model.predict_proba(single_sample)
 		
     doc.add_heading('Chosen mode of transporttaion: '+transportation_mode, level=3)
     doc.add_heading('Tons of shipment you wish to ship: '+str(ton), level=3)
@@ -125,7 +120,6 @@ if st.button("Predict"):
     doc.add_heading('The product can be recyled: '+varices, level=3)
     doc.add_heading('The business is carbon-neutral: '+b_carbon_neutral, level=3)
     doc.add_heading('The shipment company is carbon-neutral: '+c_carbon_neutral, level=3)
-    doc.add_heading('Machine Learning Model Choice: '+model_choice, level=3)
     doc.add_heading('Result', level=1)
 	
     if unit == "Miles":
