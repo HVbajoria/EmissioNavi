@@ -28,7 +28,7 @@ text = "Trans Sustain"
 styled_text = gradient_text(text, color1, color2)
 st.write(f"<div>{styled_text}</div>", unsafe_allow_html=True)
 
-st.write("Calculate and Log your environmental impact while shipping and commuting using Machine learning algorithms: Logistic Regression")
+st.write("Calculate and Log your environmental impact while shipping and commuting using Machine learning algorithms: Logistic Regression.")
 
 matplotlib.use('Agg')
 
@@ -102,9 +102,14 @@ single_sample = np.array(feature_list).reshape(1, -1)
 model_choice = "LR"
 
 if st.button("Predict"):
-	loaded_model = load_model("models/logistic_regression.pkl")
-	prediction = loaded_model.predict(single_sample)
-	pred_prob = loaded_model.predict_proba(single_sample)
+    if model_choice == "DecisionTree":
+        loaded_model = load_model("models/decision_tree.pkl")
+        prediction = loaded_model.predict(single_sample)
+        pred_prob = loaded_model.predict_proba(single_sample)
+    else:
+        loaded_model = load_model("models/logistic_regression.pkl")
+        prediction = loaded_model.predict(single_sample)
+        pred_prob = loaded_model.predict_proba(single_sample)
 		
     doc.add_heading('Chosen mode of transporttaion: '+transportation_mode, level=3)
     doc.add_heading('Tons of shipment you wish to ship: '+str(ton), level=3)

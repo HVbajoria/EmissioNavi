@@ -41,7 +41,7 @@ st.markdown("""
 
 1. **Commute Insight**: Calculate and reduce your carbon footprint for your daily commute using simple machine learning algorithms.
               
-2. **Trans Sustain**: Log and manage your environmental impact while shipping and commuting using Machine learning algorithms: Logistic Regression and Decision Tree Classifier.
+2. **Trans Sustain**: Calculate and Log your environmental impact while shipping and commuting using Machine learning algorithms: Logistic Regression.
    
 3. **Carbon Graph**: Illuminating global carbon footprints through interactive data visualizations.
  """)
