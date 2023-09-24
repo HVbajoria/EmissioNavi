@@ -100,7 +100,7 @@ streamlit run Home.py
 ```
 * Enjoy the app!
 
-## Demo Video Link :movie_camera: : 
+## Demo Video Link :movie_camera: : https://youtu.be/XkNIaIZFbA4
 
 ## Website Link :globe_with_meridians: : https://emissionavi.streamlit.app/
 
